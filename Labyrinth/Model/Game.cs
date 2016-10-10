@@ -129,63 +129,55 @@ namespace Labyrinth.Model
                 return true;
         }
 
-        public void refreshVisibility()
+        private void refreshVisibility()
         {
-            //TODO
-            foreach (Field field in gameBoard.Values)
+            foreach(Field f in gameBoard.Values)
             {
-                int xDest = field.X - player.X;
-                int yDest = field.Y - player.Y;
-                if (Math.Abs(xDest) <= 2 && Math.Abs(yDest) <= 2)
+                if(Math.Abs(f.X-player.X) <= 2 && Math.Abs(f.Y-player.Y) <= 2)
                 {
-                    field.Visible = true;
-                    //UP LEFT
-                    if(xDest == -1 && yDest == -1)
-                    {
-                        if(field.Type == FieldType.WALL)
-                        {
-
-                        }
-                    }
-                    //UP
-                    if (xDest == -1 && yDest == 0)
-                    {
-                        field.Visible = false;
-                    }
-                    //UP RIGHT
-                    if (xDest == -1 && yDest == 1)
-                    {
-                        field.Visible = false;
-                    }
-                    //RIGHT
-                    if (xDest == 0 && yDest == 1)
-                    {
-                        field.Visible = false;
-                    }
-                    //DOWN RIGHT
-                    if (xDest == 1 && yDest == 1)
-                    {
-                        field.Visible = false;
-                    }
-                    //DOWN
-                    if (xDest == 1 && yDest == 0)
-                    {
-                        field.Visible = false;
-                    }
-                    //DOWN LEFT
-                    if (xDest == 1 && yDest == -1)
-                    {
-                        field.Visible = false;
-                    }
-                    //LEFT
-                    if (xDest == 0 && yDest == -1)
-                    {
-                        field.Visible = false;
-                    }
+                    f.Visible = true;
                 }
                 else
                 {
-                    field.Visible = false;
+                    f.Visible = false;
+                }
+            }
+            for (int i = 0; i < gameSize; i++)
+            {
+                if (!isNextFieldAvaiable(player.Coords, Move.UP))
+                {
+                    Coordinate c = new Coordinate(player.X - 2, i);
+                    if (gameBoard.ContainsKey(c))
+                    {
+                        gameBoard[c].Visible = false;
+                    }
+                }
+                if (!isNextFieldAvaiable(player.Coords, Move.DOWN))
+                {
+
+                    Coordinate c = new Coordinate(player.X + 2, i);
+                    if (gameBoard.ContainsKey(c))
+                    {
+                        gameBoard[c].Visible = false;
+                    }
+                }
+                if (!isNextFieldAvaiable(player.Coords, Move.LEFT))
+                {
+
+                    Coordinate c = new Coordinate(i, player.Y - 2);
+                    if (gameBoard.ContainsKey(c))
+                    {
+                        gameBoard[c].Visible = false;
+                    }
+                }
+                if (!isNextFieldAvaiable(player.Coords, Move.RIGHT))
+                {
+
+                    Coordinate c = new Coordinate(i, player.Y + 2);
+                    if (gameBoard.ContainsKey(c))
+                    {
+                        gameBoard[c].Visible = false;
+                    }
                 }
             }
         }
