@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 
 namespace Labyrinth.Model
 {
@@ -13,19 +14,54 @@ namespace Labyrinth.Model
         private int gameSize;
         private Dictionary<Coordinate, Field> gameBoard;
         private Player player;
-        private Boolean gameFinished = false;
+
+        public Boolean gamePaused {get;private set;}
+        public int time { get; private set; }
+        private Timer timer;
         private IDataCommunication dataCommunication = new MyDataDirector();
         public event EventHandler<Boolean> gameEnd;
         public event EventHandler newGameStarted;
+        public event EventHandler<int> newTime;
 
         public void newGame(int gameSize, Dictionary<Coordinate, Field> gameBoard)
         {
             this.gameSize = gameSize;
             this.gameBoard = gameBoard;
             player = new Player(gameSize - 1, 0);
-            gameFinished = false;
+            gamePaused = false;
             refreshVisibility();
+            
+            #region timer
+            if(timer != null)
+            {
+                timer.Stop();
+            }
+            time = 0;
+            timer = new Timer(1000);
+            timer.Elapsed += TimeAdded;
+            timer.Start();
+            #endregion
+
             newGameStarted(this, null);
+        }
+
+        private void TimeAdded(object sender, ElapsedEventArgs e)
+        {
+            time += 1;
+            newTime(this, time);
+        }
+
+        public void pauseResumeGame()
+        {
+            if (gamePaused)
+            {
+                timer.Start();
+            }
+            else
+            {
+                timer.Stop();
+            }
+            gamePaused = !gamePaused;
         }
 
         public void loadLevel(string file)
@@ -46,7 +82,7 @@ namespace Labyrinth.Model
 
         public Boolean movePlayer(Move move)
         {
-            if (gameFinished)
+            if (gamePaused)
             {
                 return false;
             }
@@ -81,12 +117,17 @@ namespace Labyrinth.Model
             refreshVisibility();
             if(player.X == 0 && player.Y == gameSize -1)
             {
-                gameFinished = true;
-                gameEnd(this, gameFinished);
+                gameEnded();
             }
             return true;
         }
 
+        private void gameEnded()
+        {
+            gamePaused = true;
+            timer.Stop();
+            gameEnd(this, true);
+        }
 
         public Boolean isFieldOnBoard(Coordinate p)
         {
@@ -182,6 +223,7 @@ namespace Labyrinth.Model
                 }
             }
         }
+
         public Field getField(int x,int y)
         {
             return gameBoard[new Coordinate(x, y)];
@@ -195,6 +237,7 @@ namespace Labyrinth.Model
             }
             return null;
         }
+
         public Dictionary<Coordinate,Field> GameBoard
         {
             get { return gameBoard; }

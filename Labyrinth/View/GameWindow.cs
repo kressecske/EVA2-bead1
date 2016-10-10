@@ -34,9 +34,25 @@ namespace Labyrinth.View
 
             game.gameEnd += new EventHandler<Boolean>(Game_GameEnd); // modell eseményének társítása
             game.newGameStarted += new EventHandler(newGameEvent);
+            game.newTime += Game_newTime;
             #endregion
             newGame(level1);
         }
+
+        private void Game_newTime(object sender, int e)
+        {
+            changeTime(e);
+        }
+        private void changeTime(int time)
+        {
+            if (InvokeRequired)
+            {
+                this.Invoke(new Action<int>(changeTime), new object[] { time });
+                return;
+            }
+                gameTimeText.Text = "Time: " + time.ToString();
+        }
+
         private void newGame(ALevel level)
         {
             game.newGame(level.gameSize, level.gameBoard);
@@ -44,10 +60,17 @@ namespace Labyrinth.View
 
         private void newGameEvent(object sender, EventArgs e)
         {
-            this.Size = new Size(game.GameSize * picSize + 100, game.GameSize * picSize + 160);
+            int width = game.GameSize * picSize + 100;
+            int height = game.GameSize * picSize + 160;
+            if (width < 600)
+            {
+                width = 600;
+            }
+            this.Size = new Size(width, height);
             gameTable.Width = game.GameSize * picSize;
             gameTable.Height = game.GameSize * picSize;
             lastLevel = new Level(game.GameSize, game.GameBoard);
+            pauseButton.Text = "Pause";
             drawGameTable();
         }
         private void newGameButtonClicked(object sen,EventArgs e)
@@ -135,6 +158,19 @@ namespace Labyrinth.View
             }
 
             gameTable.CreateGraphics().DrawImage(bitmap, 0, 0); // kép kirajzolása a panelre
+        }
+
+        private void pauseButton_Click(object sender, EventArgs e)
+        {
+            game.pauseResumeGame();
+            if (game.gamePaused)
+            {
+                pauseButton.Text = "Resume";
+            }
+            else
+            {
+                pauseButton.Text = "Pause";
+            }
         }
     }
 }
