@@ -23,9 +23,10 @@ namespace Labyrinth.Model
             this.gameSize = gameSize;
             this.gameBoard = gameBoard;
             player = new Player(gameSize - 1, 0);
+            gameFinished = false;
             refreshVisibility();
             newGameStarted(this, null);
-    }
+        }
 
         public void loadLevel(string file)
         {
@@ -193,6 +194,10 @@ namespace Labyrinth.Model
                 return gameBoard.Values.ToList();
             }
             return null;
+        }
+        public Dictionary<Coordinate,Field> GameBoard
+        {
+            get { return gameBoard; }
         }
 
     }

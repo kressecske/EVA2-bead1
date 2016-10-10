@@ -32,6 +32,8 @@ namespace Labyrinth.Data
                             case "R":
                                 level.Add(new Coordinate(i, j), new Field(i, j, FieldType.ROAD));
                                 break;
+                            default:
+                                throw new DataException("Error during loading level");
                         }
                         
                     }
@@ -42,8 +44,8 @@ namespace Labyrinth.Data
             }
             catch // ha bármi hiba történt
             {
+                throw new DataException("Error during loading level");
             }
-            return null;
         }
 
     }

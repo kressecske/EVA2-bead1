@@ -18,6 +18,7 @@ namespace Labyrinth.View
         private Game game;
         ALevel level1 = new Level1();
         ALevel level2 = new Level2();
+        ALevel lastLevel;
         int picSize = 50;
 
         public GameWindow()
@@ -28,7 +29,7 @@ namespace Labyrinth.View
             #region eventhandlers
             KeyDown += new KeyEventHandler(this.GameWindow_KeyDown);
             KeyPreview = true;
-            newGameButton.Click += new System.EventHandler(newGame);
+            newGameButton.Click += new System.EventHandler(newGameButtonClicked);
             loadButton.Click += new System.EventHandler(loadLevelClicked);
 
             game.gameEnd += new EventHandler<Boolean>(Game_GameEnd); // modell eseményének társítása
@@ -38,35 +39,35 @@ namespace Labyrinth.View
         }
         private void newGame(ALevel level)
         {
-            this.Size = new Size(level.gameSize * picSize + 100, level.gameSize * picSize + 160);
-            gameTable.Width = level.gameSize * 100;
-            gameTable.Height = level.gameSize * 100;
             game.newGame(level.gameSize, level.gameBoard);
-            drawGameTable();
         }
+
         private void newGameEvent(object sender, EventArgs e)
         {
             this.Size = new Size(game.GameSize * picSize + 100, game.GameSize * picSize + 160);
             gameTable.Width = game.GameSize * picSize;
             gameTable.Height = game.GameSize * picSize;
+            lastLevel = new Level(game.GameSize, game.GameBoard);
             drawGameTable();
         }
-        private void newGame(object sen,EventArgs e)
+        private void newGameButtonClicked(object sen,EventArgs e)
         {
-            newGame(level1);
+            newGame(lastLevel);
         }
+
+
         private void loadLevelClicked(object sen, EventArgs e)
         {
             DialogResult result = openFileDialog1.ShowDialog(); // Show the dialog.
             if (result == DialogResult.OK) // Test result.
             {
-                string file = openFileDialog1.FileName;
                 try
                 {
-                    game.loadLevel(file);
+                    game.loadLevel(openFileDialog1.FileName);
                 }
-                catch (IOException)
+                catch (Data.DataException)
                 {
+                    MessageBox.Show("Hiba keletkezett a betöltés során.", "Labyrinth", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -78,7 +79,6 @@ namespace Labyrinth.View
                 MessageBox.Show("You Won", "Game Finished");
             }
         }
-
         private void GameWindow_KeyDown(object sender, KeyEventArgs e)
         {
             Boolean successFullMove = false;
@@ -104,10 +104,8 @@ namespace Labyrinth.View
                 drawGameTable();
             }
         }
-        
         public void drawGameTable()
         {
-
             Bitmap bitmap = new Bitmap(gameTable.Width, gameTable.Height); // kép létrehozása
             Graphics graphics = Graphics.FromImage(bitmap); // rajzeszköz a képre
             graphics.Clear(SystemColors.Control);

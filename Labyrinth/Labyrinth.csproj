@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\ALevel.cs" />
+    <Compile Include="Data\DataException.cs" />
     <Compile Include="Data\MyDataDirector.cs" />
     <Compile Include="Data\Level2.cs" />
     <Compile Include="Data\Level1.cs" />

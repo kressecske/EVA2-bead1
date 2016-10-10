@@ -30,9 +30,8 @@
         {
             this.newGameButton = new System.Windows.Forms.Button();
             this.loadButton = new System.Windows.Forms.Button();
-            this.gameTable = new System.Windows.Forms.PictureBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            ((System.ComponentModel.ISupportInitialize)(this.gameTable)).BeginInit();
+            this.gameTable = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // newGameButton
@@ -53,18 +52,16 @@
             this.loadButton.Text = "Load Level";
             this.loadButton.UseVisualStyleBackColor = true;
             // 
-            // gameTable
-            // 
-            this.gameTable.Location = new System.Drawing.Point(30, 60);
-            this.gameTable.Margin = new System.Windows.Forms.Padding(100);
-            this.gameTable.Name = "gameTable";
-            this.gameTable.Size = new System.Drawing.Size(100, 50);
-            this.gameTable.TabIndex = 3;
-            this.gameTable.TabStop = false;
-            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // gameTable
+            // 
+            this.gameTable.Location = new System.Drawing.Point(30, 60);
+            this.gameTable.Name = "gameTable";
+            this.gameTable.Size = new System.Drawing.Size(200, 100);
+            this.gameTable.TabIndex = 3;
             // 
             // GameWindow
             // 
@@ -78,7 +75,6 @@
             this.MinimizeBox = false;
             this.Name = "GameWindow";
             this.Text = "Labyrinth";
-            ((System.ComponentModel.ISupportInitialize)(this.gameTable)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -87,7 +83,7 @@
 
         private System.Windows.Forms.Button newGameButton;
         private System.Windows.Forms.Button loadButton;
-        private System.Windows.Forms.PictureBox gameTable;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Panel gameTable;
     }
 }
