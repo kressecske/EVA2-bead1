@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Labyrinth.Model", "Labyrint
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Labyrinth.Data", "Labyrinth.Data\Labyrinth.Data.csproj", "{390435F9-D395-453C-98C7-2CBFF9BCADD8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", "UnitTestProject1\UnitTestProject1.csproj", "{0610B6A6-AC84-4B10-BDF3-B98F93C1B05D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabyrinthModelTest", "UnitTestProject1\LabyrinthModelTest.csproj", "{0610B6A6-AC84-4B10-BDF3-B98F93C1B05D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

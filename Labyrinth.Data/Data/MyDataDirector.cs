@@ -22,7 +22,11 @@ namespace Labyrinth.Data
                 for (int i = 0; i < lines.Length; i++)
                 {
                     String[] fields = lines[i].Split();
-                    for(int j = 0; j < fields.Length; j++)
+                    if(fields.Length != lines.Length)
+                    {
+                        throw new DataException("Error during loading level");
+                    }
+                    for (int j = 0; j < fields.Length; j++)
                     {
                         switch (fields[j])
                         {

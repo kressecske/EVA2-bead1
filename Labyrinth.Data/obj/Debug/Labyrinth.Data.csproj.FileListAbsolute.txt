@@ -1,5 +1,0 @@
-D:\baCKUP\SULI\labyrinth\Labyrinth\Labyrinth.Data\obj\Debug\Labyrinth.Data.csprojResolveAssemblyReference.cache
-D:\baCKUP\SULI\labyrinth\Labyrinth\Labyrinth.Data\bin\Debug\Labyrinth.Data.dll
-D:\baCKUP\SULI\labyrinth\Labyrinth\Labyrinth.Data\bin\Debug\Labyrinth.Data.pdb
-D:\baCKUP\SULI\labyrinth\Labyrinth\Labyrinth.Data\obj\Debug\Labyrinth.Data.dll
-D:\baCKUP\SULI\labyrinth\Labyrinth\Labyrinth.Data\obj\Debug\Labyrinth.Data.pdb

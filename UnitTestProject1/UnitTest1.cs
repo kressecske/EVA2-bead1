@@ -41,6 +41,10 @@ namespace UnitTestProject1
             Assert.AreEqual(model.movePlayer(Move.LEFT), false);
             Assert.AreEqual(model.movePlayer(Move.RIGHT), false);
             Assert.AreEqual(model.movePlayer(Move.UP), true);
+
+            Assert.AreEqual(model.Player.Coords, new Coordinate(model.GameSize-2,0));
+            Assert.AreEqual(model.movePlayer(Move.LEFT), false);
+            Assert.AreEqual(model.Player.Coords, new Coordinate(model.GameSize - 2, 0));
         }
 
         [TestMethod]
