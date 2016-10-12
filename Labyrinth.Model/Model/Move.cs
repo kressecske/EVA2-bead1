@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 namespace Labyrinth.Model
 {
-    enum Move { UP, RIGHT, DOWN, LEFT}
+    public enum Move { UP, RIGHT, DOWN, LEFT}
 }

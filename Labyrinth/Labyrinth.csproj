@@ -12,6 +12,7 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -47,19 +48,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\ALevel.cs" />
-    <Compile Include="Data\DataException.cs" />
-    <Compile Include="Data\MyDataDirector.cs" />
-    <Compile Include="Data\Level2.cs" />
-    <Compile Include="Data\Level1.cs" />
-    <Compile Include="Data\IDataCommunication.cs" />
-    <Compile Include="Data\Level.cs" />
-    <Compile Include="Model\Coordinate.cs" />
-    <Compile Include="Model\Field.cs" />
-    <Compile Include="Model\FieldType.cs" />
-    <Compile Include="Model\Game.cs" />
-    <Compile Include="Model\Move.cs" />
-    <Compile Include="Model\Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\Form1.cs">
@@ -114,6 +102,19 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\blacksprite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Test\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Labyrinth.Data\Labyrinth.Data.csproj">
+      <Project>{390435f9-d395-453c-98c7-2cbff9bcadd8}</Project>
+      <Name>Labyrinth.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Labyrinth.Model\Labyrinth.Model.csproj">
+      <Project>{072c9ec8-91a1-43ed-8d27-ca691eab9200}</Project>
+      <Name>Labyrinth.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

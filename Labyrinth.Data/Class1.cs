@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace Labyrinth.Data
 {
-    class DataException : Exception
+    public class Class1
     {
-        public DataException(String message) : base(message) { }
     }
 }

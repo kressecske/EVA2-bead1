@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Labyrinth.Data
 {
-    abstract class ALevel
+    public abstract class ALevel
     {
         public int gameSize;
         public Dictionary<Coordinate, Field> gameBoard = new Dictionary<Coordinate, Field>();

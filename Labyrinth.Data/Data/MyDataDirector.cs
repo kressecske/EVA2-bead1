@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Labyrinth.Data
 {
-    class MyDataDirector : IDataCommunication
+    public class MyDataDirector : IDataCommunication
     {
         public ALevel loadLevel(string path)
         {

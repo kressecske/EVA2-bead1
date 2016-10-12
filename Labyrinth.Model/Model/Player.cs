@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Labyrinth.Model
 {
-    class Player
+    public class Player
     {
         Coordinate coords;
 

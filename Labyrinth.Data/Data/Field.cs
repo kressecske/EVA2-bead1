@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Labyrinth.Model
 {
-    class Field
+    public class Field
     {
         Coordinate coords;
         private FieldType type;
@@ -20,9 +20,7 @@ namespace Labyrinth.Model
         }
         public Field(Field f)
         {
-            coords = new Coordinate(f.coords);
-            type = f.Type;
-            Visible = f.visible;
+            new Field(f.Coords.X, f.Coords.Y, f.Type);
         }
 
         public Boolean Visible

@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace Labyrinth.Data
 {
-    class Level2 : ALevel
+    public class Level1 : ALevel
     {
-        public Level2()
+        public Level1()
         {
-            this.gameSize = 10;
+            this.gameSize = 5;
             for (int i = 0; i < gameSize; i++)
             {
                 for (int j = 0; j < gameSize; j++)

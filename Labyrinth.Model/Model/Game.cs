@@ -9,7 +9,7 @@ using System.Timers;
 
 namespace Labyrinth.Model
 {
-    class Game
+    public class Game
     {
         private int gameSize;
         private Dictionary<Coordinate, Field> gameBoard;

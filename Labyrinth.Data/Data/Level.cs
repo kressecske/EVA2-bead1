@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Labyrinth.Data
 {
-    class Level : ALevel
+    public class Level : ALevel
     {
         public Level(int gameSize, Dictionary<Coordinate, Field> gameBoard)
         {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Labyrinth.Model
 {
-    class Coordinate
+    public class Coordinate
     {
         private int x;
         private int y;
