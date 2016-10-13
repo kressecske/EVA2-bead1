@@ -52,7 +52,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Data\ALevel.cs" />
     <Compile Include="Data\Coordinate.cs" />
     <Compile Include="Data\DataException.cs" />
