@@ -1,0 +1,17 @@
+D:\baCKUP\SULI\labyrinth\Labyrinth\Labyrinth\bin\Debug\Labyrinth.exe.config
+D:\baCKUP\SULI\labyrinth\Labyrinth\Labyrinth\bin\Debug\Labyrinth.exe
+D:\baCKUP\SULI\labyrinth\Labyrinth\Labyrinth\bin\Debug\Labyrinth.pdb
+D:\baCKUP\SULI\labyrinth\Labyrinth\Labyrinth\bin\Debug\Labyrinth.Data.dll
+D:\baCKUP\SULI\labyrinth\Labyrinth\Labyrinth\bin\Debug\Labyrinth.Model.dll
+D:\baCKUP\SULI\labyrinth\Labyrinth\Labyrinth\bin\Debug\Newtonsoft.Json.dll
+D:\baCKUP\SULI\labyrinth\Labyrinth\Labyrinth\bin\Debug\System.Net.Http.Formatting.dll
+D:\baCKUP\SULI\labyrinth\Labyrinth\Labyrinth\bin\Debug\Labyrinth.Data.pdb
+D:\baCKUP\SULI\labyrinth\Labyrinth\Labyrinth\bin\Debug\Labyrinth.Model.pdb
+D:\baCKUP\SULI\labyrinth\Labyrinth\Labyrinth\bin\Debug\Newtonsoft.Json.xml
+D:\baCKUP\SULI\labyrinth\Labyrinth\Labyrinth\bin\Debug\System.Net.Http.Formatting.xml
+D:\baCKUP\SULI\labyrinth\Labyrinth\Labyrinth\obj\Debug\Labyrinth.csprojResolveAssemblyReference.cache
+D:\baCKUP\SULI\labyrinth\Labyrinth\Labyrinth\obj\Debug\Labyrinth.Properties.Resources.resources
+D:\baCKUP\SULI\labyrinth\Labyrinth\Labyrinth\obj\Debug\Labyrinth.View.GameWindow.resources
+D:\baCKUP\SULI\labyrinth\Labyrinth\Labyrinth\obj\Debug\Labyrinth.csproj.GenerateResource.Cache
+D:\baCKUP\SULI\labyrinth\Labyrinth\Labyrinth\obj\Debug\Labyrinth.exe
+D:\baCKUP\SULI\labyrinth\Labyrinth\Labyrinth\obj\Debug\Labyrinth.pdb

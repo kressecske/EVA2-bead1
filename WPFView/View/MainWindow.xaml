@@ -1,0 +1,92 @@
+﻿<Window x:Class="WPFView.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFView"
+        mc:Ignorable="d"
+        Title="Labirynth" Height="500" Width="500" MinHeight="500" MinWidth="500">
+    <Window.InputBindings>
+        <!-- billentyűparancsok megfelelő paraméterrel -->
+        <KeyBinding Key="W" Command="{Binding StepCommand}" CommandParameter="W" />
+        <KeyBinding Key="A" Command="{Binding StepCommand}" CommandParameter="A" />
+        <KeyBinding Key="S" Command="{Binding StepCommand}" CommandParameter="S" />
+        <KeyBinding Key="D" Command="{Binding StepCommand}" CommandParameter="D" />
+    </Window.InputBindings>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0">
+            <MenuItem Header="Menu">
+                <MenuItem Header="New Game" Command="{Binding NewGameCommand}" />
+                <Separator />
+                <MenuItem Header="Load level..." Command="{Binding LoadGameCommand}" />
+                <Separator />
+                <MenuItem Header="Exit" Command="{Binding ExitCommand}" />
+            </MenuItem>
+        </Menu>
+        <ItemsControl Grid.Row="1" ItemsSource="{Binding Fields}">
+            <!--az mezőket tároló vezérlő-->
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <!--a gombokat egy rácsba fűzzük fel-->
+                    <UniformGrid Rows="{Binding GameSize}" Columns="{Binding GameSize}"
+                                 Width="{Binding GameSize*50}" Height="{Binding GameSize*50}"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Image Width="50" Height="50">
+                        <!-- gomb háttérszíne -->
+                        <Image.RenderTransform>
+                            <ScaleTransform ScaleX="1" ScaleY="1" />
+                        </Image.RenderTransform>
+                        <Image.Style>
+                            <!-- gomb stílusa, ahol a színét megadjuk -->
+                            <Style TargetType="Image">
+                            <Setter Property="Margin" Value="0"/>
+                                <Style.Triggers>
+                                    <!-- a szín egy adatkötés hatására fog változni -->
+                                    <DataTrigger Binding="{Binding Type}" Value="Road">
+                                        <Setter Property="Source" Value="D:\baCKUP\SULI\labyrinth\Labyrinth\WPFView\Resources\roadsprite.png" />
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding Type}" Value="Wall">
+                                        <Setter Property="Source" Value="D:\baCKUP\SULI\labyrinth\Labyrinth\WPFView\Resources\greensprite.png" />
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding Type}" Value="Player">
+                                        <Setter Property="Source" Value="D:\baCKUP\SULI\labyrinth\Labyrinth\WPFView\Resources\250px-007Squirtle.png" />
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding Visibile}" Value="False">
+                                        <Setter Property="Source" Value="D:\baCKUP\SULI\labyrinth\Labyrinth\WPFView\Resources\blacksprite.png" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Image.Style>
+                    </Image>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+            <ItemsControl.ItemContainerStyle>
+                <!--a függőségi tulajdonságokat kjülön kell kötnünk-->
+                <Style>
+                    <Setter Property="Grid.Row" Value="{Binding X}" />
+                    <Setter Property="Grid.Column" Value="{Binding Y}" />
+                </Style>
+            </ItemsControl.ItemContainerStyle>
+        </ItemsControl>
+
+        <StatusBar Grid.Row="2">
+            <StatusBarItem>
+                <TextBlock Text="Játékidő: " />
+            </StatusBarItem>
+            <StatusBarItem>
+                <TextBlock Text="{Binding time}" />
+            </StatusBarItem>
+            <Separator />
+            <StatusBarItem />
+        </StatusBar>
+    </Grid>
+    
+</Window>

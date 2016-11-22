@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Labyrinth.Data", "Labyrinth
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabyrinthModelTest", "UnitTestProject1\LabyrinthModelTest.csproj", "{0610B6A6-AC84-4B10-BDF3-B98F93C1B05D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFView", "WPFView\WPFView.csproj", "{3587BE78-3DD5-4533-A88B-AA10A97BAB74}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{0610B6A6-AC84-4B10-BDF3-B98F93C1B05D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0610B6A6-AC84-4B10-BDF3-B98F93C1B05D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0610B6A6-AC84-4B10-BDF3-B98F93C1B05D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3587BE78-3DD5-4533-A88B-AA10A97BAB74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3587BE78-3DD5-4533-A88B-AA10A97BAB74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3587BE78-3DD5-4533-A88B-AA10A97BAB74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3587BE78-3DD5-4533-A88B-AA10A97BAB74}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
