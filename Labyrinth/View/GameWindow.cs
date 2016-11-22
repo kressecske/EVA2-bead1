@@ -33,7 +33,7 @@ namespace Labyrinth.View
             loadButton.Click += new System.EventHandler(loadLevelClicked);
 
             game.gameEnd += new EventHandler<Boolean>(Game_GameEnd); // modell eseményének társítása
-            game.newGameStarted += new EventHandler(newGameEvent);
+            game.newGameStarted += new EventHandler<EventArgs>(newGameEvent);
             game.newTime += Game_newTime;
             #endregion
             newGame(level1);

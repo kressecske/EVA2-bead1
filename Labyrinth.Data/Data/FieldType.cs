@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 namespace Labyrinth.Model
 {
-    public enum FieldType{ROAD,WALL}
+    public enum FieldType{ROAD,WALL,PLAYER}
 }

@@ -20,7 +20,7 @@ namespace Labyrinth.Model
         private Timer timer;
         private IDataCommunication dataCommunication = new MyDataDirector();
         public event EventHandler<Boolean> gameEnd;
-        public event EventHandler newGameStarted;
+        public event EventHandler<EventArgs> newGameStarted;
         public event EventHandler<int> newTime;
 
         public void newGame(int gameSize, Dictionary<Coordinate, Field> gameBoard)
@@ -42,13 +42,15 @@ namespace Labyrinth.Model
             timer.Start();
             #endregion
 
-            newGameStarted(this, null);
+            if(newGameStarted != null)
+                newGameStarted(this, EventArgs.Empty);
         }
 
         private void TimeAdded(object sender, ElapsedEventArgs e)
         {
-            time += 1;
-            newTime(this, time);
+            time = time + 1;
+            if(newTime != null)
+                newTime(this, time);
         }
 
         public void pauseResumeGame()
