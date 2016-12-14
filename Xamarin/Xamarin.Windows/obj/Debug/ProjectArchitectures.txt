@@ -1,0 +1,2 @@
+D:\baCKUP\SULI\labyrinth\Labyrinth\Xamarin\Xamarin.Windows\Xamarin.Windows.csproj;neutral
+D:\baCKUP\SULI\labyrinth\Labyrinth\Xamarin\Xamarin\Xamarin.csproj;neutral
